@@ -43,20 +43,20 @@ public class JunhuiBlockDude {
         domain = bd.generateDomain();
 
 	/* Create environment with movable blocks */ 
-        initialState = new BlockDudeState(new BlockDudeAgent(1,1,0,false),
+        initialState = new BlockDudeState(new BlockDudeAgent(8,4,0,false),
                 new BlockDudeMap(new int[][] {
-                        {1,1,1,1,0,0,0,0,0,0},
+                        {1,1,1,1,1,1,1,1,0,0},
                         {1,0,0,0,0,0,0,0,0,0},
-                        {1,0,0,0,0,0,0,0,0,0},
-                        {1,0,0,0,0,0,0,0,0,0},
-                        {1,1,1,0,0,0,0,0,0,0},
-                        {1,0,0,0,0,0,0,0,0,0},
-                        {1,0,0,0,0,0,0,0,0,0},
-                        {1,0,0,0,0,0,0,0,0,0},
-                        {1,0,0,0,0,0,0,0,0,0},
-                        {1,1,1,1,1,1,1,0,0,0}}),
-                new BlockDudeCell(8, 1, BlockDude.CLASS_EXIT, "Exit"),
-		new BlockDudeCell(2, 1, BlockDude.CLASS_BLOCK, "BLOCK"));
+                        {1,0,0,1,0,0,0,0,0,0},
+                        {1,0,0,1,1,1,0,0,0,0},
+                        {1,0,0,1,0,0,0,0,0,0},
+                        {1,0,0,1,0,0,0,0,0,0},
+                        {1,0,0,1,0,0,0,0,0,0},
+                        {1,0,0,1,0,0,0,0,0,0},
+                        {1,0,0,1,0,0,0,0,0,0},
+                        {1,1,1,1,1,1,1,1,0,0}}),
+                new BlockDudeCell(8,1, BlockDude.CLASS_EXIT, "Exit"),
+                new BlockDudeCell(6,4, BlockDude.CLASS_BLOCK, "Block"));
 
         hashFactory = new SimpleHashableStateFactory();
         env = new SimulatedEnvironment(domain, initialState);
