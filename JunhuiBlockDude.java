@@ -26,7 +26,7 @@ import burlap.domain.singleagent.blockdude.BlockDudeLevelConstructor;
 
 
 public class JunhuiBlockDude {
-
+    
     BlockDude bd;
     OOSADomain domain;
     HashableStateFactory hashFactory;
@@ -35,13 +35,14 @@ public class JunhuiBlockDude {
     State initialState;
     StateConditionTest goalCondition;
 
+    /* Constructer */
     public JunhuiBlockDude(){
         bd = new BlockDude();
         bd = new BlockDude(10,10);
 
         domain = bd.generateDomain();
 
-
+	//  create my own environment
         initialState = new BlockDudeState(new BlockDudeAgent(1,1,0,false),
                 new BlockDudeMap(new int[][] {
                         {1,1,1,0,0,0,0,0,0,0},
@@ -60,7 +61,7 @@ public class JunhuiBlockDude {
         env = new SimulatedEnvironment(domain, initialState);
 
     }
-
+    /* Q learning implementation */
     public void qLearning(String output) {
         LearningAgent agent = new QLearning(domain, 0.99, hashFactory, 0.0, 1.0);
 
@@ -69,18 +70,18 @@ public class JunhuiBlockDude {
             Episode e = agent.runLearningEpisode(env);
             e.write(output + "QL" + i);
             System.out.println(i + ": " + e.maxTimeStep());
-
+            // reset env for the next episode
             env.resetEnvironment();
         }
     }
-
+    /* Visualize the learning process */
     public void visualize(String output){
         Visualizer v = BlockDudeVisualizer.getVisualizer(10, 10);
         new EpisodeSequenceVisualizer(v, domain, output);
     }
 
 
-
+    /* Entry */
     public static void main(String[] args){
 
         System.out.println("check points...");
