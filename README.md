@@ -3,7 +3,7 @@ There are some implementations of reinforcement learning.
 
 The environment are Block Dude and Grid World.
 
-I create these implementations as Maven project using the [BURLAP](http://burlap.cs.brown.edu/index.html) java framework.
+I created these implementations as Maven project using the [BURLAP](http://burlap.cs.brown.edu/index.html) java framework.
 
 ---
 
